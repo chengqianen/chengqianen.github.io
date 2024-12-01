@@ -9,7 +9,7 @@
     
     <title>
         
-            Archive |
+            opencv |
         
         Keep Theme
     </title>
@@ -89,7 +89,7 @@
                         </li>
                     
                         
-                        <li class="menu-item flex-start border-box active">
+                        <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/archives">
                                 
                                 ARCHIVES
@@ -126,7 +126,7 @@
                 </li>
             
                 
-                <li class="drawer-menu-item border-box not-sub-menu active">
+                <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
                             
@@ -152,45 +152,164 @@
             <div class="main-content border-box">
                 
 
-                    <div class="fade-in-down-animation">
-    <div class="archives-container">
-        <div class="archives-timeline border-box">
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
             
-<div class="archive-list-container border-box">
-    
-        <section class="archive-item border-box">
-            <div class="archive-item-header border-box">
-                <span class="archive-year">2024</span>
-            </div>
-            <ul class="archive-item-body border-box">
+
+            <div class="post-content-bottom border-box">
                 
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">12-01</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2024/12/01/opencv/"
-                        >opencv</a>
-                    </li>
+                    <div class="post-title">
+                        opencv
+                    </div>
                 
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">11-30</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2024/11/30/hello-world/"
-                        >Hello World</a>
-                    </li>
+
                 
-            </ul>
-        </section>
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Keep Team</span>
+                                
+                                    <span class="author-badge">Lv1</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-12-01 01:14:25</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Sun Dec 01 2024 01:16:39 GMT+0800">2024-12-01 01:16:39</span>
+                </span>
+            
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
     
 </div>
 
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="创建图像"><a href="#创建图像" class="headerlink" title="创建图像"></a>创建图像</h2><ul>
+<li><p>使用<code>cv::Mat</code>来存储图像数据</p>
+</li>
+<li><p>Mat的成员函数<code>imread</code>可以用来保存图片的路径</p>
+<p>  使用imread()&#x3D;&#x3D;读取图像&#x3D;&#x3D;，imread包含两个参数：</p>
+<p>  imread(图像路径， 图像形式)；</p>
+<ul>
+<li><p>加载原图片的话,只需填一个参数即可</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Mat img;	<span class="comment">//声明一个保存图像的类</span></span><br><span class="line">img = <span class="built_in">imread</span>(<span class="string">&quot;lena.png&quot;</span>);	<span class="comment">//加载原图片</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加载灰度图片, 第二个参数填<code>IMREAD_GRAYSCALE</code></p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = <span class="built_in">imread</span>(<span class="string">&quot;lena.png&quot;</span>, IMREAD_GRAYSCALE);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="创建窗口-namedWindow函数"><a href="#创建窗口-namedWindow函数" class="headerlink" title="创建窗口(namedWindow函数)"></a>创建窗口(namedWindow函数)</h2><p>功能：namedWindow() 的功能就是新建一个显示窗口，用来显示图像。</p>
+<p>namedWindow() 包含两个参数：</p>
+<p>namedWindow(窗口名称， 窗口形式)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建窗口, WINDOW_FREERATIO参数为由系统自动调整窗口大小, 可以手动调整窗口大小</span></span><br><span class="line"><span class="built_in">namedWindow</span>(<span class="string">&quot;test window&quot;</span>, WINDOW_FREERATIO);</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示图像-imshow函数"><a href="#显示图像-imshow函数" class="headerlink" title="显示图像(imshow函数)"></a>显示图像(imshow函数)</h2><p>功能：imshow函数用于显示图像。</p>
+<p>imshow() 函数包含两个参数：</p>
+<p>imshow(窗口名称，图像名称)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果只调用imshow而没有namedWindow函数的话,则是按照图片原本的尺寸大小来创建窗口,且不可调整</span></span><br><span class="line"><span class="built_in">imshow</span>(<span class="string">&quot;test window&quot;</span>, img);</span><br></pre></td></tr></table></figure>
+
+<h2 id="图片显示时间-waitKey函数"><a href="#图片显示时间-waitKey函数" class="headerlink" title="图片显示时间(waitKey函数)"></a>图片显示时间(waitKey函数)</h2><p>参数&#x3D;0表示暂停, 一直显示图片</p>
+<p>参数&gt;0表示显示多少毫秒</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">waitKey</span>(<span class="number">0</span>);		<span class="comment">//一直显示</span></span><br><span class="line"><span class="built_in">waitKey</span>(<span class="number">1000</span>);	<span class="comment">//显示1000毫秒(1秒)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="保存图片-imwrite函数"><a href="#保存图片-imwrite函数" class="headerlink" title="保存图片(imwrite函数)"></a>保存图片(imwrite函数)</h2><p>保存图片到某个路径</p>
+<p>imwrite() 函数包含两个参数：</p>
+<p>imwrite(保存图像名称及格式，图像名称)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//保存图片到当前目录下</span></span><br><span class="line"><span class="built_in">imwrite</span>(<span class="string">&quot;save.png&quot;</span>, img);</span><br></pre></td></tr></table></figure>
+
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/11/30/hello-world/"
+                                   title="Hello World"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Hello World</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
         </div>
+
+        
     </div>
-    
-
-
-
 </div>
 
 
@@ -223,6 +342,27 @@
     </div>
 
     <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
     
 
     <!-- side tools -->
@@ -288,7 +428,6 @@
 
 
 
-
 <!-- common js -->
 
 <script src="/js/utils.js"></script>
@@ -317,6 +456,20 @@
     
 
     <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
     
 
     <!-- categories page -->
