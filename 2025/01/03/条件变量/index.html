@@ -9,7 +9,7 @@
     
     <title>
         
-            404 |
+            条件变量std::condition_variable |
         
         note
     </title>
@@ -152,15 +152,152 @@
             <div class="main-content border-box">
                 
 
-                    <div class="fade-in-down-animation">
-    <div class="error-404-container border-box">
-        <div class="text-1 border-box flex-center">404</div>
-        <div class="text-2 border-box flex-center">
-            Page Not Found
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        条件变量std::condition_variable
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">zuoyu</span>
+                                
+                                    <span class="author-badge">Lv2</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-01-03 17:24:58</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Tue Jan 07 2025 17:29:27 GMT+0800">2025-01-07 17:29:27</span>
+                </span>
+            
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h2 id="condition-variable"><a href="#condition-variable" class="headerlink" title="condition_variable"></a>condition_variable</h2><blockquote>
+<p>用途：</p>
+<ul>
+<li>进行线程通信</li>
+<li>线程同步的一种方式</li>
+</ul>
+<p>例子：生产线程和消费线程，确保生产完成后再执行消费，用条件变量保证该先后执行顺序</p>
+<p>需要搭配std::unique_lock使用</p>
+</blockquote>
+<h3 id="wait-std-unique-lock"><a href="#wait-std-unique-lock" class="headerlink" title="wait(std::unique_lock)"></a>wait(std::unique_lock)</h3><blockquote>
+<p>调用该函数后，会进行以下操作</p>
+<ul>
+<li>释放互斥锁</li>
+<li>线程进入等待状态</li>
+</ul>
+<p>被线程唤醒后的操作</p>
+<ul>
+<li>进入阻塞队列，直到获取到互斥锁</li>
+</ul>
+</blockquote>
+<h3 id="wait-std-unique-lock-Func"><a href="#wait-std-unique-lock-Func" class="headerlink" title="wait(std::unique_lock, Func)"></a>wait(std::unique_lock, Func)</h3><blockquote>
+<p>第二个参数的重载是为了防止<code>虚假唤醒</code>，当线程被唤醒后还得第二个参数返回true才能往下执行</p>
+</blockquote>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/12/30/C++%E5%9F%BA%E7%A1%80/"
+                                   title="C++友元"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">C++友元</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
         </div>
-        <div class="text-3 border-box flex-center">
-            <a class="go-home" href="/">Take me home</a>
-        </div>
+
+        
     </div>
 </div>
 
@@ -194,6 +331,27 @@
     </div>
 
     <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
     
 
     <!-- side tools -->
@@ -287,6 +445,20 @@
     
 
     <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
     
 
     <!-- categories page -->

@@ -161,26 +161,23 @@
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2024/12/02/algorithm/">
-                            C++ algorithm
+                        <a href="/2025/01/03/%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F/">
+                            条件变量std::condition_variable
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            std::find
-查找容器中是否有该元素
+                            condition_variable
+用途：
 
+进行线程通信
+线程同步的一种方式
 
-return：返回查找到的迭代器，找不到则返回容器的end迭代器
-arg：
-起始迭代器
-结束迭代器（左闭右开，该迭代器不参与查找）
-需要查找的值
+例子：生产线程和消费线程，确保生产完成后再执行消费，用条件变量保证该先后执行顺序
+需要搭配std::unique_lock使用
 
-
-
-123456std::vector&lt;int&...
+wait(std::unique_l...
                         
                     </div>
 
@@ -191,8 +188,336 @@ arg：
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Mon Dec 02 2024 00:55:06 GMT+0800"
-                >2024-12-02 00:55:06</span>
+                                                                                data-updated="Tue Jan 07 2025 17:29:27 GMT+0800"
+                >2025-01-07 17:29:27</span>
+            </span>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2025/01/03/%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/12/30/C++%E5%9F%BA%E7%A1%80/">
+                            C++友元
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            友元类与友元函数
+友元类不能被继承，不能传递
+友元类与友元函数用于访问类的私有成员与函数，且只能单向友元
+
+1234567891011121314151617181920212223242526272829303132333435class Fath...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Jan 07 2025 17:21:51 GMT+0800"
+                >2025-01-07 17:21:51</span>
+            </span>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/12/30/C++%E5%9F%BA%E7%A1%80/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/12/28/optional/">
+                            
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            
+title: std::optional
+用于判断函数返回值是否存在
+使用has_value来判断返回值是否有值，如果存在值，则解引用获取值
+
+12345678910111213141516171819202122232425int div(int...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Jan 07 2025 17:22:09 GMT+0800"
+                >2025-01-07 17:22:09</span>
+            </span>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/12/28/optional/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/12/16/tuple/">
+                            std::tuple
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            
+tuple元组，可以存储多个不同类型的值
+
+初始化12std::tuple&lt;int, double&gt; t1&#123;2, 3.14&#125;;std::tuple&lt;int, double&gt; t2 = std::make_...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Jan 07 2025 17:22:24 GMT+0800"
+                >2025-01-07 17:22:24</span>
+            </span>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/12/16/tuple/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/12/11/C++11%E7%BA%BF%E7%A8%8Bthread/">
+                            C++11线程
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            C++11线程thread创建线程12345678910111213//包含头文件#include &lt;thread&gt;//创建线程对象，并绑定函数void hello()&#123;    std::cout&lt;&lt;&quot;he...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Jan 07 2025 17:21:33 GMT+0800"
+                >2025-01-07 17:21:33</span>
+            </span>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/12/11/C++11%E7%BA%BF%E7%A8%8Bthread/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/12/10/%E5%AE%8C%E7%BE%8E%E8%BD%AC%E5%8F%91/">
+                            完美转发
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            perfect_forward万能引用
+万能引用既可以是左值引用，也可以是右值引用
+
+1234template&lt;typename T&gt;void func(T &amp;&amp; t);//T&amp;&amp;是万能引用，可以传入左值或...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Jan 07 2025 17:30:02 GMT+0800"
+                >2025-01-07 17:30:02</span>
+            </span>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/12/10/%E5%AE%8C%E7%BE%8E%E8%BD%AC%E5%8F%91/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/12/02/algorithm/">
+                            C++ algorithm
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            #include 
+非修改序列std::find
+查找满足特定条件的第一个元素
+
+
+return：返回查找到的迭代器，找不到则返回容器的end迭代器
+arg：
+起始迭代器
+结束迭代器（左闭右开，该迭代器不参与查找）
+需要查找的值
+
+
+
+123456s...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Mon Dec 02 2024 17:45:06 GMT+0800"
+                >2024-12-02 17:45:06</span>
             </span>
         
 
@@ -337,7 +662,7 @@ Mat的成员函数imread可以用来保存图片的路径
             
 <footer class="footer border-box">
     <div class="copyright-info info-item">
-    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
     
             &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">zuoyu</a>
         
