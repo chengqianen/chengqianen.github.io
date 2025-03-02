@@ -9,8 +9,6 @@
     
     <title>
         
-            opencv |
-        
         note
     </title>
     
@@ -161,7 +159,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        opencv
+                        
                     </div>
                 
 
@@ -189,13 +187,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-12-01 01:14:25</span>
+                <span class="datetime">2025-02-22 23:26:39</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Sun Dec 01 2024 01:16:39 GMT+0800">2024-12-01 01:16:39</span>
+                    <span class="datetime" data-updated="Sun Feb 23 2025 16:36:21 GMT+0800">2025-02-23 16:36:21</span>
                 </span>
             
         
@@ -222,39 +220,27 @@
                     
 
                     
-                         <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="创建图像"><a href="#创建图像" class="headerlink" title="创建图像"></a>创建图像</h2><ul>
-<li><p>使用<code>cv::Mat</code>来存储图像数据</p>
-</li>
-<li><p>Mat的成员函数<code>imread</code>可以用来保存图片的路径</p>
-<p>  使用imread()&#x3D;&#x3D;读取图像&#x3D;&#x3D;，imread包含两个参数：</p>
-<p>  imread(图像路径， 图像形式)；</p>
+                         <hr>
+<h2 id="std-promise和future"><a href="#std-promise和future" class="headerlink" title="std::promise和future"></a>std::promise和future</h2><h1 id="std-promise"><a href="#std-promise" class="headerlink" title="std::promise"></a>std::promise</h1><blockquote>
+<p>用于通知future，任务完成并设置值</p>
 <ul>
-<li><p>加载原图片的话,只需填一个参数即可</p>
-  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Mat img;	<span class="comment">//声明一个保存图像的类</span></span><br><span class="line">img = <span class="built_in">imread</span>(<span class="string">&quot;lena.png&quot;</span>);	<span class="comment">//加载原图片</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>加载灰度图片, 第二个参数填<code>IMREAD_GRAYSCALE</code></p>
-  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = <span class="built_in">imread</span>(<span class="string">&quot;lena.png&quot;</span>, IMREAD_GRAYSCALE);</span><br></pre></td></tr></table></figure></li>
+<li>set_value() 设置值</li>
+<li>set_exception() 设置异常</li>
 </ul>
-</li>
+</blockquote>
+<h1 id="std-future"><a href="#std-future" class="headerlink" title="std::future"></a>std::future</h1><blockquote>
+<p>用于获取不同线程中promise设置的值，future只能get一次，如果需要多个线程获取promise的值，则应用std::shared_future</p>
+<ul>
+<li>get() 获取值</li>
+<li>wait() 等待promise的通知</li>
 </ul>
-<h2 id="创建窗口-namedWindow函数"><a href="#创建窗口-namedWindow函数" class="headerlink" title="创建窗口(namedWindow函数)"></a>创建窗口(namedWindow函数)</h2><p>功能：namedWindow() 的功能就是新建一个显示窗口，用来显示图像。</p>
-<p>namedWindow() 包含两个参数：</p>
-<p>namedWindow(窗口名称， 窗口形式)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建窗口, WINDOW_FREERATIO参数为由系统自动调整窗口大小, 可以手动调整窗口大小</span></span><br><span class="line"><span class="built_in">namedWindow</span>(<span class="string">&quot;test window&quot;</span>, WINDOW_FREERATIO);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">func_promise</span><span class="params">(std::promise&lt;<span class="type">int</span>&gt;&amp; promise)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//do something 计算num</span></span><br><span class="line">    promise.<span class="built_in">set_value</span>(num);</span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func_future</span><span class="params">(std::future&lt;<span class="type">int</span>&gt;&amp; receiver)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">auto</span> val = receiver.<span class="built_in">get</span>();	<span class="comment">//如果promise未set_value，则会阻塞等待</span></span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;val: &quot;</span>&lt;&lt;val&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::promise&lt;<span class="type">int</span>&gt; promise;</span><br><span class="line">    std::future&lt;<span class="type">int</span>&gt; receiver = promise.<span class="built_in">get_future</span>();</span><br><span class="line">    <span class="function">std::thread <span class="title">t1</span><span class="params">(func_promise, std::ref(promise))</span></span>;</span><br><span class="line">    <span class="function">std::thread <span class="title">t2</span><span class="params">(func_future, std::ref(receiver))</span></span>;</span><br><span class="line">    t<span class="number">1.</span><span class="built_in">join</span>();</span><br><span class="line">    t<span class="number">2.</span><span class="built_in">join</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="显示图像-imshow函数"><a href="#显示图像-imshow函数" class="headerlink" title="显示图像(imshow函数)"></a>显示图像(imshow函数)</h2><p>功能：imshow函数用于显示图像。</p>
-<p>imshow() 函数包含两个参数：</p>
-<p>imshow(窗口名称，图像名称)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果只调用imshow而没有namedWindow函数的话,则是按照图片原本的尺寸大小来创建窗口,且不可调整</span></span><br><span class="line"><span class="built_in">imshow</span>(<span class="string">&quot;test window&quot;</span>, img);</span><br></pre></td></tr></table></figure>
-
-<h2 id="图片显示时间-waitKey函数"><a href="#图片显示时间-waitKey函数" class="headerlink" title="图片显示时间(waitKey函数)"></a>图片显示时间(waitKey函数)</h2><p>参数&#x3D;0表示暂停, 一直显示图片</p>
-<p>参数&gt;0表示显示多少毫秒</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">waitKey</span>(<span class="number">0</span>);		<span class="comment">//一直显示</span></span><br><span class="line"><span class="built_in">waitKey</span>(<span class="number">1000</span>);	<span class="comment">//显示1000毫秒(1秒)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="保存图片-imwrite函数"><a href="#保存图片-imwrite函数" class="headerlink" title="保存图片(imwrite函数)"></a>保存图片(imwrite函数)</h2><p>保存图片到某个路径</p>
-<p>imwrite() 函数包含两个参数：</p>
-<p>imwrite(保存图像名称及格式，图像名称)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//保存图片到当前目录下</span></span><br><span class="line"><span class="built_in">imwrite</span>(<span class="string">&quot;save.png&quot;</span>, img);</span><br></pre></td></tr></table></figure>
+<h1 id="std-shared-future"><a href="#std-shared-future" class="headerlink" title="std::shared_future"></a>std::shared_future</h1><blockquote>
+<p>用于多个线程或多次使用future</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;future&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;mutex&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"></span><br><span class="line">std::mutex mt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">teach</span><span class="params">(std::promise&lt;<span class="type">void</span>&gt;&amp; promise)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;class begin\n&quot;</span>;</span><br><span class="line">    promise.<span class="built_in">set_value</span>();</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;class end\n&quot;</span>;</span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">learn</span><span class="params">(std::shared_future&lt;<span class="type">void</span>&gt;&amp; receiver)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	receiver.<span class="built_in">wait</span>();	<span class="comment">//等待下课通知</span></span><br><span class="line">    <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mt)</span></span>;</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;bye(&quot;</span>&lt;&lt;std::this_thread::<span class="built_in">get_id</span>()&lt;&lt;<span class="string">&quot;)\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::promise&lt;<span class="type">void</span>&gt; teacher;</span><br><span class="line">    std::shared_future&lt;<span class="type">void</span>&gt; receiver = teacher.<span class="built_in">get_future</span>();</span><br><span class="line">    <span class="function">std::thread <span class="title">t1</span><span class="params">(teach, std::ref(teacher))</span></span>;</span><br><span class="line"> 	std::vector&lt;std::thread&gt; students;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">40</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        students.<span class="built_in">push_back</span>(std::<span class="built_in">thread</span>(learn, std::<span class="built_in">ref</span>(receiver)));</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    t<span class="number">1.</span><span class="built_in">join</span>();</span><br><span class="line">  	<span class="keyword">for</span>(<span class="keyword">auto</span> &amp;ele:students)</span><br><span class="line">    &#123;</span><br><span class="line">        ele.<span class="built_in">join</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
                     
@@ -279,14 +265,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/12/02/algorithm/"
-                                   title="C++ algorithm"
+                                   href="/2025/02/23/%E6%AD%BB%E9%94%81/"
+                                   title=""
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">C++ algorithm</span>
+                                        <span class="post-nav-title-item text-ellipsis"></span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -296,11 +282,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/11/30/hello-world/"
-                                   title="Hello World"
+                                   href="/2025/02/18/variant/"
+                                   title="std::variant"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Hello World</span>
+                                        <span class="post-nav-title-item text-ellipsis">std::variant</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">

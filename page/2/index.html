@@ -77,7 +77,7 @@
                 <ul class="menu-list border-box">
                     
                         
-                        <li class="menu-item flex-start border-box active">
+                        <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/">
                                 
                                 HOME
@@ -112,7 +112,7 @@
         <ul class="drawer-menu-list border-box">
             
                 
-                <li class="drawer-menu-item border-box not-sub-menu active">
+                <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
                             
@@ -161,15 +161,17 @@
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2025/03/02/linux%E5%AE%89%E8%A3%85qt%E9%97%AE%E9%A2%98/">
-                            
+                        <a href="/2024/12/28/optional/">
+                            std::optional
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            
-linux安装qt问题问题编译项目时报错Error while building&#x2F;deploying project untitled (kit: Desktop Qt 5.14.1 GCC 64bit) When executing s...
+                            用于判断函数返回值是否存在
+使用has_value来判断返回值是否有值，如果存在值，则解引用获取值
+
+12345678910111213141516171819202122232425int div(int a, int b)&#123;    if...
                         
                     </div>
 
@@ -180,8 +182,8 @@ linux安装qt问题问题编译项目时报错Error while building&#x2F;deployin
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Sun Mar 02 2025 20:22:20 GMT+0800"
-                >2025-03-02 20:22:20</span>
+                                                                                data-updated="Tue Jan 07 2025 17:47:56 GMT+0800"
+                >2025-01-07 17:47:56</span>
             </span>
         
 
@@ -198,7 +200,7 @@ linux安装qt问题问题编译项目时报错Error while building&#x2F;deployin
     </div>
 
     
-        <a class="home-read-more" href="/2025/03/02/linux%E5%AE%89%E8%A3%85qt%E9%97%AE%E9%A2%98/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2024/12/28/optional/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -212,70 +214,17 @@ linux安装qt问题问题编译项目时报错Error while building&#x2F;deployin
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2025/02/25/%E8%AF%BB%E5%86%99%E9%94%81/">
-                            
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            
-读写锁读写锁
-读时共享：读取数据时可以多个线程获取同一个锁(std::shared_mutex)
-写时独享：写数据时使用独占锁(std::unique_lock)
-
-12345678910111213141516171819202122232425...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Tue Feb 25 2025 01:33:00 GMT+0800"
-                >2025-02-25 01:33:00</span>
-            </span>
-        
-
-        
-
-        
-
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2025/02/25/%E8%AF%BB%E5%86%99%E9%94%81/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/2025/02/23/%E6%AD%BB%E9%94%81/">
-                            
+                        <a href="/2024/12/16/tuple/">
+                            std::tuple
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
                             
-死锁死锁产生及解决函数调用函数导致的死锁123456789101112131415std::mutex mt;//std::recursive_mutex mt;void func1()&#123;	std::unique_lock&lt;std:...
+tuple元组，可以存储多个不同类型的值
+
+初始化12std::tuple&lt;int, double&gt; t1&#123;2, 3.14&#125;;std::tuple&lt;int, double&gt; t2 = std::make_...
                         
                     </div>
 
@@ -286,8 +235,8 @@ linux安装qt问题问题编译项目时报错Error while building&#x2F;deployin
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Mon Feb 24 2025 00:44:18 GMT+0800"
-                >2025-02-24 00:44:18</span>
+                                                                                data-updated="Tue Jan 07 2025 17:22:24 GMT+0800"
+                >2025-01-07 17:22:24</span>
             </span>
         
 
@@ -304,7 +253,7 @@ linux安装qt问题问题编译项目时报错Error while building&#x2F;deployin
     </div>
 
     
-        <a class="home-read-more" href="/2025/02/23/%E6%AD%BB%E9%94%81/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2024/12/16/tuple/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -318,23 +267,14 @@ linux安装qt问题问题编译项目时报错Error while building&#x2F;deployin
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2025/02/22/future_promise/">
-                            
+                        <a href="/2024/12/11/C++11%E7%BA%BF%E7%A8%8Bthread/">
+                            C++11线程
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            
-std::promise和futurestd::promise
-用于通知future，任务完成并设置值
-
-set_value() 设置值
-set_exception() 设置异常
-
-
-std::future
-用于获取不同线程中promise设置的值...
+                            C++11线程thread创建线程12345678910111213//包含头文件#include &lt;thread&gt;//创建线程对象，并绑定函数void hello()&#123;    std::cout&lt;&lt;&quot;he...
                         
                     </div>
 
@@ -345,8 +285,8 @@ std::future
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Sun Feb 23 2025 16:36:21 GMT+0800"
-                >2025-02-23 16:36:21</span>
+                                                                                data-updated="Tue Jan 07 2025 17:21:33 GMT+0800"
+                >2025-01-07 17:21:33</span>
             </span>
         
 
@@ -363,7 +303,7 @@ std::future
     </div>
 
     
-        <a class="home-read-more" href="/2025/02/22/future_promise/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2024/12/11/C++11%E7%BA%BF%E7%A8%8Bthread/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -377,18 +317,17 @@ std::future
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2025/02/18/variant/">
-                            std::variant
+                        <a href="/2024/12/10/%E5%AE%8C%E7%BE%8E%E8%BD%AC%E5%8F%91/">
+                            完美转发
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            std::variant
-相当于union的升级版，比union更安全方便，且RAII内存管理安全
+                            perfect_forward万能引用
+万能引用既可以是左值引用，也可以是右值引用
 
-union：
-1234567891011121314union U&#123;    int a;    double b;&#125;;int m...
+1234template&lt;typename T&gt;void func(T &amp;&amp; t);//T&amp;&amp;是万能引用，可以传入左值或...
                         
                     </div>
 
@@ -399,8 +338,8 @@ union：
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Thu Feb 20 2025 00:11:33 GMT+0800"
-                >2025-02-20 00:11:33</span>
+                                                                                data-updated="Tue Jan 07 2025 17:30:02 GMT+0800"
+                >2025-01-07 17:30:02</span>
             </span>
         
 
@@ -417,7 +356,7 @@ union：
     </div>
 
     
-        <a class="home-read-more" href="/2025/02/18/variant/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2024/12/10/%E5%AE%8C%E7%BE%8E%E8%BD%AC%E5%8F%91/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -431,19 +370,27 @@ union：
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2025/02/10/%E6%8A%98%E5%8F%A0%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                            折叠表达式
+                        <a href="/2024/12/02/algorithm/">
+                            C++ algorithm
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            折叠表达式
-根据可变参数...语法延申的
-左折叠：...+arg
-右折叠：arg+...
+                            #include 
+非修改序列std::find
+查找满足特定条件的第一个元素
 
-12345678910111213141516171819202122#include &lt;iostream&gt;template&lt;typenam...
+
+return：返回查找到的迭代器，找不到则返回容器的end迭代器
+arg：
+起始迭代器
+结束迭代器（左闭右开，该迭代器不参与查找）
+需要查找的值
+
+
+
+123456s...
                         
                     </div>
 
@@ -454,8 +401,8 @@ union：
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Tue Feb 11 2025 01:04:28 GMT+0800"
-                >2025-02-11 01:04:28</span>
+                                                                                data-updated="Mon Dec 02 2024 17:45:06 GMT+0800"
+                >2024-12-02 17:45:06</span>
             </span>
         
 
@@ -472,7 +419,7 @@ union：
     </div>
 
     
-        <a class="home-read-more" href="/2025/02/10/%E6%8A%98%E5%8F%A0%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2024/12/02/algorithm/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -486,32 +433,19 @@ union：
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2025/01/11/%E3%80%8AC++%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/">
-                            《C++实战》笔记
+                        <a href="/2024/12/01/opencv/">
+                            opencv
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            预处理宏定义和宏展开
-宏定义 	宏名称 宏定义
-宏函数	宏名称(参数列表) 宏定义
+                            基础创建图像
+使用cv::Mat来存储图像数据
 
-条件编译常见的条件编译指令如下：
-
-
-
-条件编译指令
-描述
-
-
-
-#if
-如果条件为true，则执行相应操作
-
-
-#elif
-如果前面条件为假，而该条件为true，...
+Mat的成员函数imread可以用来保存图片的路径
+  使用imread()&#x3D;&#x3D;读取图像&#x3D;&#x3D;，imread包含两个参数：
+  imread(图像路径， 图像形式...
                         
                     </div>
 
@@ -522,8 +456,8 @@ union：
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Sun Jan 12 2025 01:40:50 GMT+0800"
-                >2025-01-12 01:40:50</span>
+                                                                                data-updated="Sun Dec 01 2024 01:16:39 GMT+0800"
+                >2024-12-01 01:16:39</span>
             </span>
         
 
@@ -540,7 +474,7 @@ union：
     </div>
 
     
-        <a class="home-read-more" href="/2025/01/11/%E3%80%8AC++%E5%AE%9E%E6%88%98%E3%80%8B%E7%AC%94%E8%AE%B0/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2024/12/01/opencv/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -554,20 +488,14 @@ union：
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2025/01/11/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E6%A8%A1%E6%9D%BF/">
-                            可变参数模板
+                        <a href="/2024/11/30/hello-world/">
+                            Hello World
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            可变参数模板
-可以传入任意类型，任意个数的参数
-模板声明：…Types
-变量声明：Types…types
-使用：types…
-...可接纳的模板参数个数是0个及以上的任意数量，需要注意包括0个
-在不定参数的模板函数中，还可以通过sizeof...(a...
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, yo...
                         
                     </div>
 
@@ -578,8 +506,8 @@ union：
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Wed Jan 15 2025 02:23:42 GMT+0800"
-                >2025-01-15 02:23:42</span>
+                                                                                data-updated="Sat Nov 30 2024 13:22:19 GMT+0800"
+                >2024-11-30 13:22:19</span>
             </span>
         
 
@@ -596,120 +524,7 @@ union：
     </div>
 
     
-        <a class="home-read-more" href="/2025/01/11/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E6%A8%A1%E6%9D%BF/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/2025/01/03/%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F/">
-                            条件变量std::condition_variable
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            condition_variable
-用途：
-
-进行线程通信
-线程同步的一种方式
-
-例子：生产线程和消费线程，确保生产完成后再执行消费，用条件变量保证该先后执行顺序
-需要搭配std::unique_lock使用
-
-wait(std::unique_l...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Tue Jan 07 2025 17:29:27 GMT+0800"
-                >2025-01-07 17:29:27</span>
-            </span>
-        
-
-        
-
-        
-
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2025/01/03/%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/2024/12/30/C++%E5%9F%BA%E7%A1%80/">
-                            C++友元
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            友元类与友元函数
-友元类不能被继承，不能传递
-友元类与友元函数用于访问类的私有成员与函数，且只能单向友元
-
-1234567891011121314151617181920212223242526272829303132333435class Fath...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Tue Jan 07 2025 17:21:51 GMT+0800"
-                >2025-01-07 17:21:51</span>
-            </span>
-        
-
-        
-
-        
-
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2024/12/30/C++%E5%9F%BA%E7%A1%80/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2024/11/30/hello-world/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -719,11 +534,11 @@ wait(std::unique_l...
     </ul>
     
     <div class="paginator border-box flex-center">
-        <div class="border-box first-page paginator-btn not-allow">
+        <div class="border-box first-page paginator-btn allowed">
             <a class="border-box"><i class="fa-solid fa-angle-double-left"></i></a>
         </div>
 
-        <div class="border-box paginator-btn">
+        <div class="border-box paginator-btn allowed">
             <a class="border-box"
                href="/"
             ><i class="fa-solid fa-chevron-left"></i></a>
@@ -733,20 +548,20 @@ wait(std::unique_l...
         <div class="page-number-box border-box flex-center">
             <input class="page-number-input border-box base-style"
                    type="number"
-                   value="1"
+                   value="2"
                    min="1"
                    max="2"
             /><span class="delimiter base-style">/</span><span class="base-style">2</span>
         </div>
 
 
-        <div class="border-box paginator-btn allowed">
+        <div class="border-box paginator-btn">
             <a class="border-box"
-               href="/page/2/"
+               href="/"
             ><i class="fa-solid fa-chevron-right"></i></a>
         </div>
 
-        <div class="border-box last-page paginator-btn allowed">
+        <div class="border-box last-page paginator-btn not-allow">
             <a class="border-box"><i class="fa-solid fa-angle-double-right"></i></a>
         </div>
     </div>

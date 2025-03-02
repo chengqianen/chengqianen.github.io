@@ -9,8 +9,6 @@
     
     <title>
         
-            opencv |
-        
         note
     </title>
     
@@ -161,7 +159,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        opencv
+                        
                     </div>
                 
 
@@ -189,13 +187,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-12-01 01:14:25</span>
+                <span class="datetime">2025-03-02 20:19:40</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Sun Dec 01 2024 01:16:39 GMT+0800">2024-12-01 01:16:39</span>
+                    <span class="datetime" data-updated="Sun Mar 02 2025 20:22:20 GMT+0800">2025-03-02 20:22:20</span>
                 </span>
             
         
@@ -222,40 +220,17 @@
                     
 
                     
-                         <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="创建图像"><a href="#创建图像" class="headerlink" title="创建图像"></a>创建图像</h2><ul>
-<li><p>使用<code>cv::Mat</code>来存储图像数据</p>
-</li>
-<li><p>Mat的成员函数<code>imread</code>可以用来保存图片的路径</p>
-<p>  使用imread()&#x3D;&#x3D;读取图像&#x3D;&#x3D;，imread包含两个参数：</p>
-<p>  imread(图像路径， 图像形式)；</p>
+                         <hr>
+<h2 id="linux安装qt问题"><a href="#linux安装qt问题" class="headerlink" title="linux安装qt问题"></a>linux安装qt问题</h2><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>编译项目时报错Error while building&#x2F;deploying project untitled (kit: Desktop Qt 5.14.1 GCC 64bit) When executing step “qmake”</p>
+<p>解决方法：</p>
 <ul>
-<li><p>加载原图片的话,只需填一个参数即可</p>
-  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Mat img;	<span class="comment">//声明一个保存图像的类</span></span><br><span class="line">img = <span class="built_in">imread</span>(<span class="string">&quot;lena.png&quot;</span>);	<span class="comment">//加载原图片</span></span><br></pre></td></tr></table></figure>
+<li><p>sudo apt-get install build-essential</p>
 </li>
-<li><p>加载灰度图片, 第二个参数填<code>IMREAD_GRAYSCALE</code></p>
-  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = <span class="built_in">imread</span>(<span class="string">&quot;lena.png&quot;</span>, IMREAD_GRAYSCALE);</span><br></pre></td></tr></table></figure></li>
-</ul>
+<li><p>sudo apt update</p>
+</li>
+<li><p>sudo apt install libgl1-mesa-dev</p>
 </li>
 </ul>
-<h2 id="创建窗口-namedWindow函数"><a href="#创建窗口-namedWindow函数" class="headerlink" title="创建窗口(namedWindow函数)"></a>创建窗口(namedWindow函数)</h2><p>功能：namedWindow() 的功能就是新建一个显示窗口，用来显示图像。</p>
-<p>namedWindow() 包含两个参数：</p>
-<p>namedWindow(窗口名称， 窗口形式)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建窗口, WINDOW_FREERATIO参数为由系统自动调整窗口大小, 可以手动调整窗口大小</span></span><br><span class="line"><span class="built_in">namedWindow</span>(<span class="string">&quot;test window&quot;</span>, WINDOW_FREERATIO);</span><br></pre></td></tr></table></figure>
-
-<h2 id="显示图像-imshow函数"><a href="#显示图像-imshow函数" class="headerlink" title="显示图像(imshow函数)"></a>显示图像(imshow函数)</h2><p>功能：imshow函数用于显示图像。</p>
-<p>imshow() 函数包含两个参数：</p>
-<p>imshow(窗口名称，图像名称)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果只调用imshow而没有namedWindow函数的话,则是按照图片原本的尺寸大小来创建窗口,且不可调整</span></span><br><span class="line"><span class="built_in">imshow</span>(<span class="string">&quot;test window&quot;</span>, img);</span><br></pre></td></tr></table></figure>
-
-<h2 id="图片显示时间-waitKey函数"><a href="#图片显示时间-waitKey函数" class="headerlink" title="图片显示时间(waitKey函数)"></a>图片显示时间(waitKey函数)</h2><p>参数&#x3D;0表示暂停, 一直显示图片</p>
-<p>参数&gt;0表示显示多少毫秒</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">waitKey</span>(<span class="number">0</span>);		<span class="comment">//一直显示</span></span><br><span class="line"><span class="built_in">waitKey</span>(<span class="number">1000</span>);	<span class="comment">//显示1000毫秒(1秒)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="保存图片-imwrite函数"><a href="#保存图片-imwrite函数" class="headerlink" title="保存图片(imwrite函数)"></a>保存图片(imwrite函数)</h2><p>保存图片到某个路径</p>
-<p>imwrite() 函数包含两个参数：</p>
-<p>imwrite(保存图像名称及格式，图像名称)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//保存图片到当前目录下</span></span><br><span class="line"><span class="built_in">imwrite</span>(<span class="string">&quot;save.png&quot;</span>, img);</span><br></pre></td></tr></table></figure>
-
 
                     
                 </div>
@@ -276,31 +251,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/12/02/algorithm/"
-                                   title="C++ algorithm"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">C++ algorithm</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/11/30/hello-world/"
-                                   title="Hello World"
+                                   href="/2025/02/25/%E8%AF%BB%E5%86%99%E9%94%81/"
+                                   title=""
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Hello World</span>
+                                        <span class="post-nav-title-item text-ellipsis"></span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">

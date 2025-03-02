@@ -9,7 +9,7 @@
     
     <title>
         
-            opencv |
+            std::variant |
         
         note
     </title>
@@ -161,7 +161,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        opencv
+                        std::variant
                     </div>
                 
 
@@ -189,13 +189,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-12-01 01:14:25</span>
+                <span class="datetime">2025-02-18 23:20:36</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Sun Dec 01 2024 01:16:39 GMT+0800">2024-12-01 01:16:39</span>
+                    <span class="datetime" data-updated="Thu Feb 20 2025 00:11:33 GMT+0800">2025-02-20 00:11:33</span>
                 </span>
             
         
@@ -222,39 +222,44 @@
                     
 
                     
-                         <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="创建图像"><a href="#创建图像" class="headerlink" title="创建图像"></a>创建图像</h2><ul>
-<li><p>使用<code>cv::Mat</code>来存储图像数据</p>
-</li>
-<li><p>Mat的成员函数<code>imread</code>可以用来保存图片的路径</p>
-<p>  使用imread()&#x3D;&#x3D;读取图像&#x3D;&#x3D;，imread包含两个参数：</p>
-<p>  imread(图像路径， 图像形式)；</p>
+                         <h1 id="std-variant"><a href="#std-variant" class="headerlink" title="std::variant"></a>std::variant</h1><blockquote>
+<p>相当于union的升级版，比union更安全方便，且RAII内存管理安全</p>
+</blockquote>
+<p><strong>union</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> <span class="title class_">U</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">double</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	U u;</span><br><span class="line">    u.a = <span class="number">10</span>;</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;int: &quot;</span>&lt;&lt;u.a&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    u.b = <span class="number">3.14</span>;</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;double: &quot;</span>&lt;&lt;u.b&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>std::variant</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">std::variant&lt;<span class="type">int</span>, <span class="type">double</span>&gt; v;</span><br><span class="line">v = <span class="number">10</span>;</span><br><span class="line">std::cout&lt;&lt;<span class="string">&quot;int: &quot;</span>&lt;&lt;std::<span class="built_in">get</span>&lt;<span class="type">int</span>&gt;(v)&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">v = <span class="number">3.14</span>;</span><br><span class="line">std::cout&lt;&lt;<span class="string">&quot;double: &quot;</span>&lt;&lt;std::<span class="built_in">get</span>&lt;<span class="number">1</span>&gt;(v)&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="std-get"><a href="#std-get" class="headerlink" title="std::get"></a>std::get</h2><blockquote>
+<p>用于获取或设置std::variant和std::tuple的元素，获取值失败时会抛出异常</p>
 <ul>
-<li><p>加载原图片的话,只需填一个参数即可</p>
-  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Mat img;	<span class="comment">//声明一个保存图像的类</span></span><br><span class="line">img = <span class="built_in">imread</span>(<span class="string">&quot;lena.png&quot;</span>);	<span class="comment">//加载原图片</span></span><br></pre></td></tr></table></figure>
+<li><p>std::get<N> N:自然数</p>
+<p>  例：获取第一个元素std::get&lt;0&gt;(v)</p>
 </li>
-<li><p>加载灰度图片, 第二个参数填<code>IMREAD_GRAYSCALE</code></p>
-  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = <span class="built_in">imread</span>(<span class="string">&quot;lena.png&quot;</span>, IMREAD_GRAYSCALE);</span><br></pre></td></tr></table></figure></li>
+<li><p>std::get<type> 根据类型来获取值，在有相同的两个以上的类型时会编译失败</p>
+</li>
+</ul>
+<p>注意：在std::variant使用std::get<int>(v) &#x3D; 10来进行赋值时，需要v里的int有值或者v未初始化且索引为0时才可以，否则会抛异常</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::variant&lt;<span class="type">int</span>,<span class="type">double</span>&gt; v = <span class="number">10</span>;</span><br><span class="line">std::get&lt;<span class="type">double</span>&gt; = <span class="number">3.14</span>;	<span class="comment">//failed，double没有值无法赋值</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="std-get-if"><a href="#std-get-if" class="headerlink" title="std::get_if"></a>std::get_if</h2><blockquote>
+<p>获取值的指针类型，解引用后获得或设置值</p>
+<ul>
+<li>return<ul>
+<li>nullptr  没有存储值</li>
+<li>返回存储值的指针</li>
 </ul>
 </li>
 </ul>
-<h2 id="创建窗口-namedWindow函数"><a href="#创建窗口-namedWindow函数" class="headerlink" title="创建窗口(namedWindow函数)"></a>创建窗口(namedWindow函数)</h2><p>功能：namedWindow() 的功能就是新建一个显示窗口，用来显示图像。</p>
-<p>namedWindow() 包含两个参数：</p>
-<p>namedWindow(窗口名称， 窗口形式)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建窗口, WINDOW_FREERATIO参数为由系统自动调整窗口大小, 可以手动调整窗口大小</span></span><br><span class="line"><span class="built_in">namedWindow</span>(<span class="string">&quot;test window&quot;</span>, WINDOW_FREERATIO);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">std::variant&lt;<span class="type">int</span>, <span class="type">double</span>&gt; v = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">std::<span class="built_in">get</span>&lt;<span class="type">int</span>&gt;(v) = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> val = std::<span class="built_in">get_if</span>&lt;<span class="type">int</span>&gt;(&amp;v);</span><br><span class="line"><span class="keyword">if</span>(val)</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;int: &quot;</span>&lt;&lt;*val&lt;&lt;<span class="string">&quot;\n&quot;</span>;	<span class="comment">//10</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;no value\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">*val = <span class="number">20</span>;</span><br><span class="line">std::cout&lt;&lt;<span class="string">&quot;int: &quot;</span>&lt;&lt;std::<span class="built_in">get</span>&lt;<span class="type">int</span>&gt;(v)&lt;&lt;<span class="string">&quot;\n&quot;</span>;	<span class="comment">//20</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="显示图像-imshow函数"><a href="#显示图像-imshow函数" class="headerlink" title="显示图像(imshow函数)"></a>显示图像(imshow函数)</h2><p>功能：imshow函数用于显示图像。</p>
-<p>imshow() 函数包含两个参数：</p>
-<p>imshow(窗口名称，图像名称)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果只调用imshow而没有namedWindow函数的话,则是按照图片原本的尺寸大小来创建窗口,且不可调整</span></span><br><span class="line"><span class="built_in">imshow</span>(<span class="string">&quot;test window&quot;</span>, img);</span><br></pre></td></tr></table></figure>
-
-<h2 id="图片显示时间-waitKey函数"><a href="#图片显示时间-waitKey函数" class="headerlink" title="图片显示时间(waitKey函数)"></a>图片显示时间(waitKey函数)</h2><p>参数&#x3D;0表示暂停, 一直显示图片</p>
-<p>参数&gt;0表示显示多少毫秒</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">waitKey</span>(<span class="number">0</span>);		<span class="comment">//一直显示</span></span><br><span class="line"><span class="built_in">waitKey</span>(<span class="number">1000</span>);	<span class="comment">//显示1000毫秒(1秒)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="保存图片-imwrite函数"><a href="#保存图片-imwrite函数" class="headerlink" title="保存图片(imwrite函数)"></a>保存图片(imwrite函数)</h2><p>保存图片到某个路径</p>
-<p>imwrite() 函数包含两个参数：</p>
-<p>imwrite(保存图像名称及格式，图像名称)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//保存图片到当前目录下</span></span><br><span class="line"><span class="built_in">imwrite</span>(<span class="string">&quot;save.png&quot;</span>, img);</span><br></pre></td></tr></table></figure>
+<h2 id="index"><a href="#index" class="headerlink" title="index()"></a>index()</h2><blockquote>
+<p>输出第几个索引有值，未初始化为0</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::variant&lt;<span class="type">int</span>, <span class="type">double</span>&gt; v = <span class="number">3.14</span>;</span><br><span class="line">std::cout&lt;&lt;v.<span class="built_in">index</span>()&lt;&lt;<span class="string">&quot;\n&quot;</span>;	<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
 
 
                     
@@ -279,14 +284,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/12/02/algorithm/"
-                                   title="C++ algorithm"
+                                   href="/2025/02/22/future_promise/"
+                                   title=""
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">C++ algorithm</span>
+                                        <span class="post-nav-title-item text-ellipsis"></span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -296,11 +301,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/11/30/hello-world/"
-                                   title="Hello World"
+                                   href="/2025/02/10/%E6%8A%98%E5%8F%A0%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+                                   title="折叠表达式"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Hello World</span>
+                                        <span class="post-nav-title-item text-ellipsis">折叠表达式</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
