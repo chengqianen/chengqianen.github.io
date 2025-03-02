@@ -9,6 +9,8 @@
     
     <title>
         
+            死锁 |
+        
         note
     </title>
     
@@ -159,7 +161,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        
+                        死锁
                     </div>
                 
 
@@ -193,7 +195,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Mon Feb 24 2025 00:44:18 GMT+0800">2025-02-24 00:44:18</span>
+                    <span class="datetime" data-updated="Sun Mar 02 2025 21:45:37 GMT+0800">2025-03-02 21:45:37</span>
                 </span>
             
         
@@ -220,8 +222,7 @@
                     
 
                     
-                         <hr>
-<h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h1 id="死锁产生及解决"><a href="#死锁产生及解决" class="headerlink" title="死锁产生及解决"></a>死锁产生及解决</h1><h2 id="函数调用函数导致的死锁"><a href="#函数调用函数导致的死锁" class="headerlink" title="函数调用函数导致的死锁"></a>函数调用函数导致的死锁</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">std::mutex mt;</span><br><span class="line"><span class="comment">//std::recursive_mutex mt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mt)</span></span>;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">    <span class="built_in">func2</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mt)</span></span>;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                         <h1 id="死锁产生及解决"><a href="#死锁产生及解决" class="headerlink" title="死锁产生及解决"></a>死锁产生及解决</h1><h2 id="函数调用函数导致的死锁"><a href="#函数调用函数导致的死锁" class="headerlink" title="函数调用函数导致的死锁"></a>函数调用函数导致的死锁</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">std::mutex mt;</span><br><span class="line"><span class="comment">//std::recursive_mutex mt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mt)</span></span>;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">    <span class="built_in">func2</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mt)</span></span>;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>原因：func1的锁lock后还未解锁便调用了func2，由于mt未解锁，于是进入阻塞状态，导致死锁</p>
@@ -251,13 +252,13 @@
                                 <a class="prev"
                                    rel="prev"
                                    href="/2025/02/25/%E8%AF%BB%E5%86%99%E9%94%81/"
-                                   title=""
+                                   title="读写锁"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis"></span>
+                                        <span class="post-nav-title-item text-ellipsis">读写锁</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -268,10 +269,10 @@
                                 <a class="next"
                                    rel="next"
                                    href="/2025/02/22/future_promise/"
-                                   title=""
+                                   title="std::promise和future"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis"></span>
+                                        <span class="post-nav-title-item text-ellipsis">std::promise和future</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
