@@ -9,7 +9,7 @@
     
     <title>
         
-            Archive: 2025/3 |
+            Qt-事件拦截(过滤) |
         
         note
     </title>
@@ -89,7 +89,7 @@
                         </li>
                     
                         
-                        <li class="menu-item flex-start border-box active">
+                        <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/archives">
                                 
                                 ARCHIVES
@@ -126,7 +126,7 @@
                 </li>
             
                 
-                <li class="drawer-menu-item border-box not-sub-menu active">
+                <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
                             
@@ -152,45 +152,157 @@
             <div class="main-content border-box">
                 
 
-                    <div class="fade-in-down-animation">
-    <div class="archives-container">
-        <div class="archives-timeline border-box">
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
             
-<div class="archive-list-container border-box">
-    
-        <section class="archive-item border-box">
-            <div class="archive-item-header border-box">
-                <span class="archive-year">2025</span>
-            </div>
-            <ul class="archive-item-body border-box">
+
+            <div class="post-content-bottom border-box">
                 
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">03-07</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2025/03/07/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90/"
-                        >单例模式释放资源</a>
-                    </li>
+                    <div class="post-title">
+                        Qt-事件拦截(过滤)
+                    </div>
                 
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">03-02</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2025/03/02/linux%E5%AE%89%E8%A3%85qt%E9%97%AE%E9%A2%98/"
-                        >linux安装qt问题</a>
-                    </li>
+
                 
-            </ul>
-        </section>
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">zuoyu</span>
+                                
+                                    <span class="author-badge">Lv3</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-04-06 11:56:16</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Sun Apr 06 2025 12:12:26 GMT+0800">2025-04-06 12:12:26</span>
+                </span>
+            
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
     
 </div>
 
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="bool-eventFilter-QObject-watched-QEvent-event"><a href="#bool-eventFilter-QObject-watched-QEvent-event" class="headerlink" title="bool eventFilter(QObject *watched, QEvent *event)"></a>bool eventFilter(QObject *watched, QEvent *event)</h1><blockquote>
+<ul>
+<li>QObject* 触发事件的对象</li>
+<li>QEvent* 触发的事件类型</li>
+</ul>
+<p>return true时代表事件处理完毕，不再分发事件</p>
+<p>return QObject::eventFilter(watched, event)时继续分发事件，只是在事件触发前do something</p>
+</blockquote>
+<p>如下例，如果处理了MouseButtonPress事件，返回true后，将不再触发mousePressEvent事件。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">EventFilter::eventFilter</span><span class="params">(QObject *watched, QEvent *event)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(event-&gt;<span class="built_in">type</span>() == QEvent::MouseButtonPress)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>()&lt;&lt;<span class="string">&quot;button press&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(event-&gt;<span class="built_in">type</span>() == QEvent::MouseButtonRelease)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>()&lt;&lt;<span class="string">&quot;button release&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> QObject::<span class="built_in">eventFilter</span>(watched, event);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">QPushButton *btn = <span class="keyword">new</span> <span class="built_in">QPushButton</span>(<span class="string">&quot;click here&quot;</span>);</span><br><span class="line">btn-&gt;<span class="built_in">installEventFilter</span>(<span class="keyword">new</span> EventFilter);</span><br><span class="line"><span class="built_in">connect</span>(btn, &amp;QPushButton::clicked, <span class="keyword">this</span>, []()&#123;</span><br><span class="line">   <span class="built_in">qDebug</span>()&lt;&lt;<span class="string">&quot;btn clicked&quot;</span>;	<span class="comment">//不会触发 </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2025/04/06/Qt%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/"
+                                   title="Qt-信号与槽"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Qt-信号与槽</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/03/07/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90/"
+                                   title="单例模式释放资源"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">单例模式释放资源</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
         </div>
+
+        
     </div>
-    
-
-
-
 </div>
 
 
@@ -223,6 +335,27 @@
     </div>
 
     <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
     
 
     <!-- side tools -->
@@ -288,7 +421,6 @@
 
 
 
-
 <!-- common js -->
 
 <script src="/js/utils.js"></script>
@@ -317,6 +449,20 @@
     
 
     <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
     
 
     <!-- categories page -->

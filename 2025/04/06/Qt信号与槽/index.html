@@ -9,7 +9,7 @@
     
     <title>
         
-            Archive: 2025/3 |
+            Qt-信号与槽 |
         
         note
     </title>
@@ -89,7 +89,7 @@
                         </li>
                     
                         
-                        <li class="menu-item flex-start border-box active">
+                        <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/archives">
                                 
                                 ARCHIVES
@@ -126,7 +126,7 @@
                 </li>
             
                 
-                <li class="drawer-menu-item border-box not-sub-menu active">
+                <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
                             
@@ -152,45 +152,143 @@
             <div class="main-content border-box">
                 
 
-                    <div class="fade-in-down-animation">
-    <div class="archives-container">
-        <div class="archives-timeline border-box">
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
             
-<div class="archive-list-container border-box">
-    
-        <section class="archive-item border-box">
-            <div class="archive-item-header border-box">
-                <span class="archive-year">2025</span>
-            </div>
-            <ul class="archive-item-body border-box">
+
+            <div class="post-content-bottom border-box">
                 
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">03-07</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2025/03/07/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90/"
-                        >单例模式释放资源</a>
-                    </li>
+                    <div class="post-title">
+                        Qt-信号与槽
+                    </div>
                 
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">03-02</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2025/03/02/linux%E5%AE%89%E8%A3%85qt%E9%97%AE%E9%A2%98/"
-                        >linux安装qt问题</a>
-                    </li>
+
                 
-            </ul>
-        </section>
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">zuoyu</span>
+                                
+                                    <span class="author-badge">Lv3</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-04-06 12:11:44</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Sun Apr 06 2025 14:12:42 GMT+0800">2025-04-06 14:12:42</span>
+                </span>
+            
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
     
 </div>
 
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="connect第五个参数"><a href="#connect第五个参数" class="headerlink" title="connect第五个参数"></a>connect第五个参数</h1><h2 id="Qt-DirectConnection"><a href="#Qt-DirectConnection" class="headerlink" title="Qt::DirectConnection"></a>Qt::DirectConnection</h2><blockquote>
+<p>发出信号后立刻调用槽函数</p>
+</blockquote>
+<h2 id="Qt-QueuedConnection"><a href="#Qt-QueuedConnection" class="headerlink" title="Qt::QueuedConnection"></a>Qt::QueuedConnection</h2><blockquote>
+<p>一般用于跨线程通信调用信号槽</p>
+<p><code>同线程下</code>：等待发出信号的函数执行完毕再调用槽函数</p>
+</blockquote>
+<h2 id="Qt-BlockingQueuedConnection"><a href="#Qt-BlockingQueuedConnection" class="headerlink" title="Qt::BlockingQueuedConnection"></a>Qt::BlockingQueuedConnection</h2><blockquote>
+<p>阻塞信号发出线程，执行完槽函数后解除阻塞</p>
+</blockquote>
+<h2 id="Qt-UniqueConnection"><a href="#Qt-UniqueConnection" class="headerlink" title="Qt::UniqueConnection"></a>Qt::UniqueConnection</h2><blockquote>
+<p>重复connect只调用一次</p>
+</blockquote>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/04/06/Qt%E4%BA%8B%E4%BB%B6%E6%8B%A6%E6%88%AA/"
+                                   title="Qt-事件拦截(过滤)"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Qt-事件拦截(过滤)</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
         </div>
+
+        
     </div>
-    
-
-
-
 </div>
 
 
@@ -223,6 +321,27 @@
     </div>
 
     <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
     
 
     <!-- side tools -->
@@ -288,7 +407,6 @@
 
 
 
-
 <!-- common js -->
 
 <script src="/js/utils.js"></script>
@@ -317,6 +435,20 @@
     
 
     <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
     
 
     <!-- categories page -->
