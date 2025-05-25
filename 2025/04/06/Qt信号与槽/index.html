@@ -195,7 +195,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Sun Apr 06 2025 14:12:42 GMT+0800">2025-04-06 14:12:42</span>
+                    <span class="datetime" data-updated="Tue Apr 08 2025 08:59:33 GMT+0800">2025-04-08 08:59:33</span>
                 </span>
             
         
@@ -235,6 +235,12 @@
 <h2 id="Qt-UniqueConnection"><a href="#Qt-UniqueConnection" class="headerlink" title="Qt::UniqueConnection"></a>Qt::UniqueConnection</h2><blockquote>
 <p>重复connect只调用一次</p>
 </blockquote>
+<h1 id="sender"><a href="#sender" class="headerlink" title="sender()"></a>sender()</h1><blockquote>
+<p>QObject* sender() 指向发送信号的指针对象</p>
+<p>可用qobject_cast&lt;&gt;()转换为实际对象</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyWidget::buttonClicked</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    QObject* obj = <span class="built_in">sender</span>(); <span class="comment">// 得到发送signal的object</span></span><br><span class="line">    QPushButton* btn = <span class="built_in">qobject_cast</span>&lt;QPushButton*&gt;(obj);</span><br><span class="line">    <span class="keyword">if</span> (btn) &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;You clicked:&quot;</span> &lt;&lt; btn-&gt;<span class="built_in">text</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
                     
                 </div>
@@ -254,6 +260,22 @@
 
                 
                     <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2025/04/09/%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/"
+                                   title="生成随机数"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">生成随机数</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
                         
                         
                             <div class="next-post">

@@ -9,7 +9,7 @@
     
     <title>
         
-            Qt-事件拦截(过滤) |
+            生成随机数 |
         
         note
     </title>
@@ -161,7 +161,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        Qt-事件拦截(过滤)
+                        生成随机数
                     </div>
                 
 
@@ -189,13 +189,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2025-04-06 11:56:16</span>
+                <span class="datetime">2025-04-09 12:55:51</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Sun Apr 06 2025 22:00:19 GMT+0800">2025-04-06 22:00:19</span>
+                    <span class="datetime" data-updated="Wed Apr 09 2025 13:08:48 GMT+0800">2025-04-09 13:08:48</span>
                 </span>
             
         
@@ -222,20 +222,10 @@
                     
 
                     
-                         <h1 id="bool-eventFilter-QObject-watched-QEvent-event"><a href="#bool-eventFilter-QObject-watched-QEvent-event" class="headerlink" title="bool eventFilter(QObject *watched, QEvent *event)"></a>bool eventFilter(QObject *watched, QEvent *event)</h1><blockquote>
-<ul>
-<li>QObject* 触发事件的对象</li>
-<li>QEvent* 触发的事件类型</li>
-</ul>
-<p>return true时代表事件处理完毕，不再分发事件</p>
-<p>return QObject::eventFilter(watched, event)时继续分发事件，只是在事件触发前do something</p>
-</blockquote>
-<p>如下例，如果处理了MouseButtonPress事件，返回true后，将不再触发mousePressEvent事件。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">EventFilter::eventFilter</span><span class="params">(QObject *watched, QEvent *event)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(event-&gt;<span class="built_in">type</span>() == QEvent::MouseButtonPress)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>()&lt;&lt;<span class="string">&quot;button press&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(event-&gt;<span class="built_in">type</span>() == QEvent::MouseButtonRelease)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>()&lt;&lt;<span class="string">&quot;button release&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> QObject::<span class="built_in">eventFilter</span>(watched, event);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">QPushButton *btn = <span class="keyword">new</span> <span class="built_in">QPushButton</span>(<span class="string">&quot;click here&quot;</span>);</span><br><span class="line">btn-&gt;<span class="built_in">installEventFilter</span>(<span class="keyword">new</span> EventFilter);</span><br><span class="line"><span class="built_in">connect</span>(btn, &amp;QPushButton::clicked, <span class="keyword">this</span>, []()&#123;</span><br><span class="line">   <span class="built_in">qDebug</span>()&lt;&lt;<span class="string">&quot;btn clicked&quot;</span>;	<span class="comment">//不会触发 </span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+                         <h1 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a>C++11</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;random&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::random_device rd;</span><br><span class="line">    <span class="function">std::mt19937 <span class="title">gen</span><span class="params">(rd())</span></span>; <span class="comment">// 用 random_device 生成种子</span></span><br><span class="line">    <span class="function">std::uniform_int_distribution&lt;<span class="type">int</span>&gt; <span class="title">dist_int</span><span class="params">(<span class="number">1</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; ++i) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="built_in">dist_int</span>(gen) &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n\n&quot;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function">std::uniform_real_distribution&lt;<span class="type">double</span>&gt; <span class="title">dist_real</span><span class="params">(<span class="number">1.0</span>, <span class="number">10.0</span>)</span></span>;	<span class="comment">//生成随机浮点数1.0~10.0</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		std::cout &lt;&lt; <span class="built_in">dist_real</span>(gen) &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;\n\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>事件顺序eventFilter -&gt; event</li>
-</ul>
+<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 设置随机种子（用当前时间）</span></span><br><span class="line">    srand((<span class="type">unsigned</span> <span class="type">int</span>)time(<span class="literal">NULL</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; ++i) &#123;</span><br><span class="line">        <span class="comment">// rand() % 10 产生 0~9，加1变成 1~10</span></span><br><span class="line">        <span class="type">int</span> r = rand() % <span class="number">10</span> + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, r);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
                     
                 </div>
@@ -259,14 +249,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2025/04/06/Qt%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/"
-                                   title="Qt-信号与槽"
+                                   href="/2025/04/12/Lua/"
+                                   title="Lua"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Qt-信号与槽</span>
+                                        <span class="post-nav-title-item text-ellipsis">Lua</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -276,11 +266,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2025/03/07/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90/"
-                                   title="单例模式释放资源"
+                                   href="/2025/04/06/Qt%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/"
+                                   title="Qt-信号与槽"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">单例模式释放资源</span>
+                                        <span class="post-nav-title-item text-ellipsis">Qt-信号与槽</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
